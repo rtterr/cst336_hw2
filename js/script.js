@@ -5,7 +5,7 @@ $(document).ready(function() {
   //event listeners
   $("#addName").on("click", addName);
   $("#clearList").on("click", clearList);
-  $("#submitList").on("click", submitList);
+  $("input#submitList").on("click", submitList);
 
   //functions
   function isListValid() {
@@ -42,6 +42,8 @@ $(document).ready(function() {
         }).appendTo(listDisplay);
       });
     };
+
+    return;
   };
 
   function addName() {
@@ -59,6 +61,8 @@ $(document).ready(function() {
 
     $("#nameInput").val(""); //clear name input field
     $("#nameInput").focus(); //set cursor to field
+
+    return;
   };
 
   function clearList() {
@@ -68,6 +72,8 @@ $(document).ready(function() {
     $("#giftingList").hide();
     $("#sidebar1").html(""); //remove elves
     $("#sidebar2").html("");
+
+    return;
   };
 
   function submitList() {
@@ -79,12 +85,22 @@ $(document).ready(function() {
     };
 
     //Secret Santa random assignment
+    secretSanta(namesList);
+
+    $("#giftingList").show();
+    $("#sidebar1").html("<img src='img/elf1.png' alt='elf1' />");
+    $("#sidebar2").html("<img src='img/elf2.png' alt='elf2' />");
+
+    return;
+  };
+
+  function secretSanta(arr){
     var result = [];
-    var recipients = namesList.slice();
-    var listLength = namesList.length;
+    var recipients = arr.slice();
+    var listLength = arr.length;
     for (var i = 0; i < listLength; i++) {
       //get current sender's name
-      var sender = namesList[i];
+      var sender = arr[i];
       //find random recipient
       var recipientIndex = Math.floor(Math.random() * recipients.length);
       while (recipients[recipientIndex] === sender) {
@@ -110,11 +126,8 @@ $(document).ready(function() {
     });
     $("#giftingList").append("<h2>Gifting List</h2>");
     $("#giftingList").append(giftingListDisplay);
-    $("#giftingList").show();
-    $("#sidebar1").html("<img src='img/elf1.png' alt='elf1' />");
-    $("#sidebar2").html("<img src='img/elf2.png' alt='elf2' />");
 
     return;
-  };
+  }
 
 }) //ready

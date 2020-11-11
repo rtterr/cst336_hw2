@@ -26,18 +26,18 @@
         <label for="nameInput">Add at least three names to the list.</label>
         <br />
         <input type="text" id="nameInput" />
-        <button id="addName">Add name</button>
+        <input type="button" class="button" id="addName" value="Add name" />
         <p id="nameValid"></p>
       </div>
       <div class="col-sm">
         <h2>List of Participants</h2>
         <div id="namesListDisplay">(none so far)</div>
-        <button id="clearList">Clear list</button>
+        <input type="button" id="clearList" value="Clear list" />
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <button id="submitList">Generate gifting list!</button>
+        <input type="button" id="submitList" value="Generate gifting list!" />
         <p id="listValid"></p>
       </div>
     </div>

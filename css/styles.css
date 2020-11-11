@@ -19,7 +19,7 @@ a:hover {
   color: #4d2521;
 }
 
-button {
+input[type=button] {
   font-weight:bold;
   background-color: #575938;
   color:white;
@@ -28,7 +28,7 @@ button {
   border: 2px solid white;
 }
 
-button#submitList {
+#submitList {
   font-size: 1.5em;
   margin: 20px 0px 10px 0px;
 }
