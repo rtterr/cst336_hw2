@@ -25,6 +25,13 @@ $(document).ready(function() {
       isValid = false;
       $("#nameValid").html("Please input a name.");
     }
+
+    for (var i = 0; i < namesList.length; i++) {
+      if (namesList[i] == $("#nameInput").val()){
+        isValid = false;
+        $("#nameValid").html("Same name is already in the list.");
+      }
+    }
     return isValid;
   };
 
@@ -72,6 +79,8 @@ $(document).ready(function() {
     $("#giftingList").hide();
     $("#sidebar1").html(""); //remove elves
     $("#sidebar2").html("");
+    $("#listValid").html(""); //reset validation messages
+    $("#nameValid").html("");
 
     return;
   };
