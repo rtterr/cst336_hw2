@@ -94,25 +94,39 @@ $(document).ready(function() {
     return;
   };
 
-  function secretSanta(arr){
+  function secretSanta(arr) {
     var result = [];
-    var recipients = arr.slice();
+    var reciArray = arr.slice();
     var listLength = arr.length;
+
+    //define shuffle function
+    function shuffle(array) {
+      array.sort(() => Math.random() - 0.5);
+    }
+
+    //shuffle recipient array
+    shuffle(reciArray);
+
+    //check if any of the pairs are between the same person
     for (var i = 0; i < listLength; i++) {
-      //get current sender's name
-      var sender = arr[i];
-      //find random recipient
-      var recipientIndex = Math.floor(Math.random() * recipients.length);
-      while (recipients[recipientIndex] === sender) {
-        //find new recipient if sender is same as recipient
-        recipientIndex = Math.floor(Math.random() * recipients.length);
+      if (arr[i] == reciArray[i] && i != listLength - 1) {
+        //swap between current and last item if there is a same-person pair
+        var temp = reciArray[i];
+        reciArray[i] = reciArray[listLength - 1];
+        reciArray[listLength - 1] = temp;
       }
-      //assign chosen recipient to variable and remove from potential recipients array
-      var recipient = recipients.splice(recipientIndex, 1)[0];
-      //push an object with sender+recipient to the results array
+      if (arr[i] == reciArray[i] && i == listLength - 1) {
+        //if there are no more items to swap, just shuffle recipients and start over
+        shuffle(reciArray);
+        i = 0;
+      }
+    }
+
+    //push an object with sender+recipient to the results array
+    for (var i = 0; i < listLength; i++) {
       result.push({
-        sender: sender,
-        recipient: recipient
+        sender: arr[i],
+        recipient: reciArray[i]
       });
     }
 
