@@ -1,0 +1,67 @@
+body {
+  background-color: #8f9267;
+  margin-bottom:20px;
+}
+
+.jumbotron {
+  font-family: 'Rancho', cursive;
+  font-size:5em;
+  color:#e5ce8d;
+  background-color: #9c2a26;
+  background-image:url("../img/xmas_bg_red.png");
+}
+
+a {
+  color:#9c2a26;
+}
+
+a:hover {
+  color: #4d2521;
+}
+
+button {
+  font-weight:bold;
+  background-color: #575938;
+  color:white;
+  padding:0.5em;
+  border-radius:10px;
+  border: 2px solid white;
+}
+
+button#submitList {
+  font-size: 1.5em;
+  margin: 20px 0px 10px 0px;
+}
+
+.col-sm, #giftingList {
+  background-color: #e5ce8d;
+  border-radius: 10px;
+  margin: 0px 20px 20px 20px;
+  padding: 10px;
+}
+
+h2 {
+  font-family: 'Rancho', cursive;
+  color: #4d2521;
+}
+
+ul {
+  padding:0;
+}
+
+#listValid, #nameValid{
+  color: #9c2a26;
+  font-weight:bold;
+}
+
+.sidebar {
+  background-color:transparent;
+}
+
+footer {
+  font-size:0.8em;
+}
+
+#giftingList{
+  display:none;
+}
