@@ -27,7 +27,7 @@ $(document).ready(function() {
     }
 
     for (var i = 0; i < namesList.length; i++) {
-      if (namesList[i] == $("#nameInput").val()){
+      if (namesList[i].toLowerCase() == $("#nameInput").val().toLowerCase()){
         isValid = false;
         $("#nameValid").html("Same name is already in the list.");
       }
